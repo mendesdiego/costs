@@ -10,6 +10,12 @@ import ProjectCard from '../project/ProjectCard';
 
 import styles from './Projects.module.css'
 
+// import ConfigUrl from '../config/ConfigUrl';
+
+const url = (window.location.host === 'localhost:3000') ? 'http://localhost:5000' : 'https://costs-nu-wine.vercel.app'
+
+// console.log(ConfigUrl);
+
 function Projects() {
     const [projects, setProjects] = useState([])
     const [removeLoading, setRemoveLoading] = useState(false)
@@ -24,7 +30,7 @@ function Projects() {
 
     useEffect( () => {
         setTimeout(() => {
-            fetch('http://localhost:5000/projects', {
+            fetch(`${url}/projects`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -40,7 +46,7 @@ function Projects() {
     }, [])
 
     function removeProject(id) {
-        fetch(`http://localhost:5000/projects/${id}`, {
+        fetch(`${url}/projects/${id}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json'

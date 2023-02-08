@@ -11,8 +11,9 @@ import ServiceForm from '../service/ServiceForm';
 import Message from '../layout/Message';
 import ServiceCard from '../service/ServiceCard'
 
-function Project() {
+const url = (window.location.host === 'localhost:3000') ? 'http://localhost:5000' : 'https://costs-nu-wine.vercel.app'
 
+function Project() {
     const {id} = useParams()
     const [project, setProject] = useState([])
     const [services, setServices] = useState([])
@@ -23,7 +24,7 @@ function Project() {
 
     useEffect(() => {
         setTimeout(() => {
-            fetch(`http://localhost:5000/projects/${id}`, {
+            fetch(`${url}/projects/${id}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -48,7 +49,7 @@ function Project() {
             return false
         }
 
-        fetch(`http://localhost:5000/projects/${project.id}`, {
+        fetch(`${url}/projects/${project.id}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',
@@ -89,7 +90,7 @@ function Project() {
         project.cost = newCost
 
         // update project
-        fetch( `http://localhost:5000/projects/${project.id}`, {
+        fetch( `${url}/projects/${project.id}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json'
@@ -114,7 +115,7 @@ function Project() {
         projectUpdated.services = servicesUpdated
         projectUpdated.cost = parseFloat(projectUpdated.cost) - parseFloat(cost)
 
-        fetch(`http://localhost:5000/projects/${projectUpdated.id}`, {
+        fetch(`${url}/projects/${projectUpdated.id}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json'
