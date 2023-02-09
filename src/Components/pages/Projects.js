@@ -12,7 +12,7 @@ import styles from './Projects.module.css'
 
 // import ConfigUrl from '../config/ConfigUrl';
 
-const url = (window.location.host === 'localhost:3000') ? 'http://localhost:5000' : 'https://costs-nu-wine.vercel.app'
+const url = (window.location.host === 'localhost:3000') ? 'http://localhost:5000' : 'https://json-db-nine.vercel.app'
 
 // console.log(ConfigUrl);
 

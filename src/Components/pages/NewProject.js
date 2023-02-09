@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom'
 import ProjectForm from '../project/ProjectForm'
 import styles from './NewProject.module.css'
 
-const url = (window.location.host === 'localhost:3000') ? 'http://localhost:5000' : 'https://costs-nu-wine.vercel.app'
+const url = (window.location.host === 'localhost:3000') ? 'http://localhost:5000' : 'https://json-db-nine.vercel.app'
 
 function NewProject() {
 

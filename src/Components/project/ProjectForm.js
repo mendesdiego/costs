@@ -6,12 +6,14 @@ import SubmitButton from '../form/SubmitButton'
 
 import styles from './ProjectForm.module.css'
 
+const url = (window.location.host === 'localhost:3000') ? 'http://localhost:5000' : 'https://json-db-nine.vercel.app'
+
 function ProjectForm({handleSubmit, btnText, projectData}) {
     const [categories, setCategories] = useState([])
     const [project, setProject] = useState(projectData || {})
 
     useEffect(() => {
-        fetch('http://localhost:5000/categories', {
+        fetch(`${url}/categories`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
