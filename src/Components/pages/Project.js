@@ -11,7 +11,7 @@ import ServiceForm from '../service/ServiceForm';
 import Message from '../layout/Message';
 import ServiceCard from '../service/ServiceCard'
 
-const url = (window.location.host === 'localhost:3000') ? 'http://localhost:5000' : 'https://costs-nu-wine.vercel.app'
+const url = (window.location.host === 'localhost:3000') ? 'http://localhost:5000' : 'https://json-db-nine.vercel.app'
 
 function Project() {
     const {id} = useParams()
